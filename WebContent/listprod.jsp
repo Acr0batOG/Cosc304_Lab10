@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Nolan and Rhys Grocery</title>
+<title>Nolan and Rhys's Headphone Emporium</title>
 </head>
 <body>
 

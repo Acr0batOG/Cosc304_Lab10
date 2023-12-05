@@ -1,24 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-        <title>Nolan and Rhys Grocery Main Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nolan and Rhys's Headphone Emporium</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Add a light background color */
+        }
+
+        header {
+            background-color: #007BFF; 
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0; 
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column; /* Change to column to make links vertical */
+            align-items: center; /* Center links horizontally */
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #007BFF; /* Blue color for links */
+            text-decoration: none;
+            margin: 10px 0; /* Add some spacing between links */
+            font-size: 18px; /* Increase font size */
+            font-weight: bold; /* Bold text */
+            transition: color 0.3s; /* Add a smooth color transition on hover */
+        }
+
+        nav a:hover {
+            color: #fff; /* Change color on hover */
+        }
+        .scroller-container {
+                white-space: nowrap; /* Prevent line breaks */
+                animation: scroll 20s linear infinite; /* Adjust the animation duration as needed */
+            }
+    
+            .scroller-image {
+                display: inline-block;
+                max-height: 100vh; /* Adjust the maximum height as needed */
+                margin-right: 20px; /* Adjust the spacing between images */
+            }
+    
+            @keyframes scroll {
+                0% {
+                    transform: translateX(100%);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+    </style>
 </head>
 <body>
-<h1 align="center">Welcome to Nolan and Rhys Grocery</h1>
 
-<h2 align="center"><a href="login.jsp">Login</a></h2>
+    <header>
+        <h1>Nolan and Rhys's Headphone Emporium</h1>
+    </header>
 
-<h2 align="center"><a href="listprod.jsp">Begin Shopping</a></h2>
-
-<h2 align="center"><a href="listorder.jsp">List All Orders</a></h2>
-
-<h2 align="center"><a href="customer.jsp">Customer Info</a></h2>
-
-<h2 align="center"><a href="admin.jsp">Administrators</a></h2>
-
-<h2 align="center"><a href="logout.jsp">Log Out</a></h2>
+    <nav>
+        <a href="login.jsp">Login</a>
+        <a href="listprod.jsp">Begin Shopping</a>
+        <a href="listorder.jsp">List All Orders</a>
+        <a href="customer.jsp">Customer Info</a>
+        <a href="admin.jsp">Administrators</a>
+        <a href="logout.jsp">Log Out</a>
+    </nav>
+    <div class="scroller-container">
+        <img class="scroller-image" src="img/HD800.jpg" alt="Image 2">
+        <img class="scroller-image" src="img/Sundara.jpg" alt="Image 3">
+        <img class="scroller-image" src="img/S12_Pro.jpg" alt="Image 6">    
+        <img class="scroller-image" src="img/HE_1.jpg" alt="Image 12">
+    </div>
 
 </body>
-</head>
-
-
+</html>
