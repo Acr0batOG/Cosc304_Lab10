@@ -52,11 +52,13 @@ try
     while (rs.next()) {
          out.println("<tr>");
          out.println("<td><a href='addcart.jsp?id=" + URLEncoder.encode(String.valueOf(rs.getInt("productId")), "UTF-8") + "&name=" + URLEncoder.encode(rs.getString("productName"), "UTF-8") + "&price=" + URLEncoder.encode(String.valueOf(rs.getDouble("productPrice")), "UTF-8") + "'>Add to Cart</a></td>");
+         
          out.println("<td><a href='product.jsp?id=" + URLEncoder.encode(String.valueOf(rs.getInt("productId")), "UTF-8") + "&name=" + URLEncoder.encode(rs.getString("productName"), "UTF-8") + "&price=" + URLEncoder.encode(String.valueOf(rs.getDouble("productPrice")), "UTF-8") + "'>" + rs.getString("productName") + "</a></td>");
          //out.println("<td>" + rs.getString("productName") + "+</td>");
          double price = rs.getDouble("productPrice");
          String priceString = String.format("%.2f", price);
          out.println("<td>$" + priceString + "</td>");
+         out.println("<td><a href='reviews.jsp?id=" + URLEncoder.encode(String.valueOf(rs.getInt("productId")), "UTF-8") + "'>Review Product</a></td>");
          out.println("</tr>");
       }
 
