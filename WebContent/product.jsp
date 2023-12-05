@@ -35,7 +35,7 @@ try
     while(rst.next()){
         out.println("<tr><h2>"+rst.getString(2)+"</h2></tr>");
         out.println("<br>");
-        out.println("<tr><tH>"+rst.getString(3)+"</th></tr>");
+        out.println("<tr><img src = '"+rst.getString(3)+"'</tr>");
         out.println("<br>");
         out.println("<tr><th><b>Id</b> " + rst.getInt(1)+"</th></tr>");
         out.println("<br>");
