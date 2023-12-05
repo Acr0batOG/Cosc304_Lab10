@@ -35,12 +35,7 @@ try
     while(rst.next()){
         out.println("<tr><h2>"+rst.getString(2)+"</h2></tr>");
         out.println("<br>");
-        if(!(rst.getString(3)==null)){
-            out.println("<tr><th><img src = '" +rst.getString(3)+ "'></th></tr>");
-        }
-        if(!(rst.getString(4)==null)){
-            out.println("<tr><th><img src = displayImage.jsp?id="+productId+"></th></tr>");
-        }
+        out.println("<tr><tH>"+rst.getString(3)+"</th></tr>");
         out.println("<br>");
         out.println("<tr><th><b>Id</b> " + rst.getInt(1)+"</th></tr>");
         out.println("<br>");
@@ -50,6 +45,19 @@ try
     }
     rst.close();
     session.removeAttribute("addcart");
+    String sql1 = "SELECT reviewRating, reviewDate, reviewComment FROM review WHERE productId = ?";
+    PreparedStatement pst  = connection.prepareStatement(sql1);
+    pst.setString(1,productId);
+    ResultSet rst123 = pst.executeQuery();
+    out.println("<tr><h2> Reviews </h2></tr>");
+    while(rst123.next()){
+        out.println("<tr> Review Rating: "+rst123.getString(1)+"/5</tr>");
+        out.println("<br>");
+        out.println("<tr><th> Review Date: "+rst123.getString(2)+"</th></tr>");
+        out.println("<br>");
+        out.println("<tr><th> Comment: " + rst123.getString(3)+"</th></tr>");
+        out.println("<br>");
+    }
     
 }
 catch (java.lang.ClassNotFoundException e)

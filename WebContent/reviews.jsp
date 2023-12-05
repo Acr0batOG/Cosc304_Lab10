@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <h2>Submit a Review</h2>
+    <h2>Write a Review</h2>
 
     <%-- Get productId and customerId from request parameters --%>
     <%
