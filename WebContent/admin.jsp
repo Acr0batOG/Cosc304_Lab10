@@ -39,7 +39,7 @@ try{
 
 
 %>
-
+<a href="addproduct.html">Add Product</a>
 </body>
 </html>
 

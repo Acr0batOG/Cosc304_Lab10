@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product Form</title>
+</head>
+<body>
+
+    <h1>Add Product Form</h1>
+
+    <form action="insertproduct.jsp" method="post">
+        <!-- productName -->
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" required><br>
+
+        <!-- productPrice -->
+        <label for="productPrice">Product Price:</label>
+        <input type="number" id="productPrice" name="productPrice" step="0.01" required><br>
+
+        <!-- productImage -->
+        <label for="productImage">Product Image (Upload):</label>
+        <input type="file" id="productImage" name="productImage"><br>
+
+        <!-- productDesc -->
+        <label for="productDesc">Product Description:</label>
+        <textarea id="productDesc" name="productDesc" rows="4" cols="50" required></textarea><br>
+
+        <!-- categoryId -->
+        <label for="categoryId">Category ID:</label>
+        <input type="number" id="categoryId" name="categoryId" min="1" max="5" required><br>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Add Product">
+    </form>
+
+</body>
+</html>
