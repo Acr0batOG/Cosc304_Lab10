@@ -5,7 +5,7 @@
 // Get form data
 String productName = request.getParameter("productName");
 double productPrice = Double.parseDouble(request.getParameter("productPrice"));
-String productImageURL = request.getParameter("productImage");
+String productImageURL = request.getParameter("productImageURL");
 String productDesc = request.getParameter("productDesc");
 int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 
@@ -21,7 +21,7 @@ try {
     Connection connection = DriverManager.getConnection(url, uid, pw);
 
     // SQL query for insertion
-    String sql = "INSERT INTO product (productName, productPrice, productImage, productDesc, categoryId) VALUES (?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO product (productName, productPrice, productImageURL, productDesc, categoryId) VALUES (?, ?, ?, ?, ?)";
     PreparedStatement pstmt = connection.prepareStatement(sql);
     
     // Set parameters
@@ -35,11 +35,14 @@ try {
     pstmt.executeUpdate();
     pstmt.close();
     connection.close();
+    out.println("Product Inserted");
     // Redirect to a success page or display a success message
     response.sendRedirect("admin.jsp");
 } catch (Exception e) {
+    out.println("Error");
     // Handle exceptions (e.g., display an error message)
     e.printStackTrace();
+   response.sendRedirect("admin.jsp");
 }
 
 %>

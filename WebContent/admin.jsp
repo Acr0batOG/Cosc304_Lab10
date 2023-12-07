@@ -39,7 +39,9 @@ try{
 
 
 %>
-<a href="addproduct.html">Add Product</a>
+<a href="addproduct.html">Add Product</a><br>
+<a href="updateproduct.html">Update Product</a><br>
+<a href="deleteproduct.html">Delete Product</a>
 </body>
 </html>
 

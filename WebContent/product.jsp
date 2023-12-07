@@ -41,7 +41,7 @@ try
         out.println("<br>");
         out.println("<tr><th><b>Price</b> $"+ rst.getString(5)+"</th></tr>");
         out.println("<br>");
-        out.println("<td><h2><a href='addcart.jsp?productId=" + URLEncoder.encode(String.valueOf(rst.getInt("productId")), "UTF-8") + "&name=" + URLEncoder.encode(rst.getString("productName"), "UTF-8") + "&price=" + URLEncoder.encode(String.valueOf(rst.getDouble("productPrice")), "UTF-8") + "'>Add to Cart</a></h2></td>");
+        out.println("<td><h2><a href='addcart.jsp?id=" + URLEncoder.encode(String.valueOf(rst.getInt("productId")), "UTF-8") + "&name=" + URLEncoder.encode(rst.getString("productName"), "UTF-8") + "&price=" + URLEncoder.encode(String.valueOf(rst.getDouble("productPrice")), "UTF-8") + "'>Add to Cart</a></h2></td>");
     }
     rst.close();
     session.removeAttribute("addcart");
