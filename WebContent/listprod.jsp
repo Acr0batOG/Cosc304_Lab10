@@ -11,38 +11,64 @@
 <h1>Search for the products you want to buy:</h1>
 
 <form method="get" action="listprod.jsp">
-<input type="text" name="productName" size="50">
-<input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
+    <label for="productName">Product Name:</label>
+    <input type="text" name="productName" size="50">
+    <br>
+    <!-- Add a dropdown selection box for categories -->
+    <label for="category">Category:</label>
+    <select name="category">
+        <option value="">All Categories</option>
+        <option value="1">Open back Headphones</option>
+        <option value="2">Closed back Headphones</option>
+        <option value="3">Planar IEMs</option>
+        <option value="4">Bluetooth IEMs</option>
+        <option value="5">Amps</option>
+
+        <!-- Add more categories as needed -->
+    </select>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset"> (Leave blank for all products)
 </form>
 
-<% // Get product name to search for
+<%
+// Get product name and category to search for
 String name = request.getParameter("productName");
-		
-//Note: Forces loading of SQL Server driver
-try
-{	// Load driver class
-	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-	// Establish database connection
+String category = request.getParameter("category");
+
+// Note: Forces loading of SQL Server driver
+try {
+    // Load driver class
+    Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+    // Establish database connection
     String url = "jdbc:sqlserver://cosc304_sqlserver:1433;DatabaseName=orders;TrustServerCertificate=True";
     String uid = "sa";
     String pw = "304#sa#pw";
     Connection connection = DriverManager.getConnection(url, uid, pw);
 
-    
     String sql;
-    if (name != null && !name.isEmpty()) {
+    if (name != null && !name.isEmpty() && category != null && !category.isEmpty()) {
+        sql = "SELECT * FROM product JOIN category ON product.categoryId = category.categoryId WHERE productName LIKE ? AND category.categoryId = ?";
+    } else if (name != null && !name.isEmpty()) {
         sql = "SELECT * FROM product WHERE productName LIKE ?";
+    } else if (category != null && !category.isEmpty()) {
+        sql = "SELECT * FROM product JOIN category ON product.categoryId = category.categoryId WHERE category.categoryId = ?";
     } else {
         sql = "SELECT * FROM product";
     }
 
-    
     PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
+    int parameterIndex = 1;
     if (name != null && !name.isEmpty()) {
-        preparedStatement.setString(1, "%" + name + "%");
+        preparedStatement.setString(parameterIndex++, "%" + name + "%");
     }
-	ResultSet rs = preparedStatement.executeQuery();
+    if (category != null && !category.isEmpty()) {
+        preparedStatement.setString(parameterIndex++, category);
+    }
+
+    ResultSet rs = preparedStatement.executeQuery();
+
 	out.println("<header><h2>All Products</h2>");
 	out.println("<table>");
 	out.println("<tr>");

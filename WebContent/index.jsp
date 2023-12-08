@@ -79,7 +79,10 @@
         <a href="listorder.jsp">List All Orders</a>
         <a href="customer.jsp">Customer Info</a>
         <a href="admin.jsp">Administrators</a>
+        <a href = "inventory.jsp">Inventory by Store</a>
         <a href="logout.jsp">Log Out</a>
+        <a href="showcart.jsp">View your Cart</a>
+        <a href = "updateimage.jsp">Load Images</a>
         <a href="ship.jsp?orderId=1">Test Ship orderId=1</a>
         <a href="ship.jsp?orderId=3">Test Ship orderId=3</a>
     </nav>
