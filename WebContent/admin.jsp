@@ -39,9 +39,10 @@ try{
 
 
 %>
+<a href= "index.jsp">Home</a><br>
 <a href="addproduct.html">Add Product</a><br>
-<a href="updateproduct.html">Update Product</a><br>
-<a href="deleteproduct.html">Delete Product</a>
+<a href="deleteproduct.jsp">Delete/Update Product</a><br>
+
 </body>
 </html>
 
