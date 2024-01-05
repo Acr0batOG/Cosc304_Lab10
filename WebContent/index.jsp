@@ -76,6 +76,7 @@
     <nav>
         <a href="login.jsp">Login</a>
         <a href="listprod.jsp">Begin Shopping</a>
+        <a href="create.html">Create an Account</a>
         <a href="listorder.jsp">List All Orders</a>
         <a href="customer.jsp">Customer Info</a>
         <a href="admin.jsp">Administrators</a>

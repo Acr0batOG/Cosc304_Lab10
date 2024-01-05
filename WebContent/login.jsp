@@ -31,11 +31,12 @@ if (session.getAttribute("loginMessage") != null)
 </tr>
 </table>
 <br/>
-<input class="submit" type="submit" name="Submit2" value="Log In">
+<input class="submit" type="submit" name="Submit2" value="Log In"><br>
+<a href="forgotUsername.jsp">Forgot Username</a><br>
+<a href="forgotPassword.jsp">Forgot Password</a>
 </form>
 
 </div>
-
 </body>
 </html>
 

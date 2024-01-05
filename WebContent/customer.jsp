@@ -50,10 +50,21 @@ try{
 		out.println("<tr><td><b>Postal Code</b></td><td>"+postalCode+"</td></tr>");
 		out.println("<tr><td><b>Country</b></td><td>"+country+"</td></tr>");
 		out.println("<tr><td><b>User Name</b></td><td>"+userName+"</td></tr>");
-
-
 	}
 	out.println("</table>");
+	out.println("<h2>Customer's Orders</h2>");
+	String custOrder = "SELECT userId, orderId, orderSummary.customerId, totalAmount FROM orderSummary JOIN customer ON orderSummary.customerId = customer.customerId WHERE userId = ?";
+	PreparedStatement pstmt2 = connection.prepareStatement(custOrder);
+	pstmt2.setString(1, userName);
+	ResultSet rst2 = pstmt2.executeQuery();
+	while(rst2.next()){
+		int orderId = rst2.getInt(2);
+		String customerId = rst2.getString(3);
+		String totalAmount = rst2.getString(4);
+		out.println("<table border='1'>");
+		out.println("<tr><th>Order Id</th><th>Customer Id</th><th>Total Amount</th></tr>");
+		out.println("<tr><td>"+orderId+"</td><td>"+customerId+"</td><td>$"+totalAmount+"</td></tr>");
+	}
 }catch (java.lang.ClassNotFoundException e)
 {
 	out.println("ClassNotFoundException: " +e);

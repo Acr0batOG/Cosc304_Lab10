@@ -7,7 +7,7 @@
 <title>Nolan and Rhys's Headphone Emporium</title>
 </head>
 <body>
-
+<h2><a href= "index.jsp">Home</a></h2>
 <h1>Search for the products you want to buy:</h1>
 
 <form method="get" action="listprod.jsp">
@@ -23,8 +23,6 @@
         <option value="3">Planar IEMs</option>
         <option value="4">Bluetooth IEMs</option>
         <option value="5">Amps</option>
-
-        <!-- Add more categories as needed -->
     </select>
 
     <input type="submit" value="Submit">
@@ -115,6 +113,6 @@ catch (java.lang.ClassNotFoundException e)
 // NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 // out.println(currFormat.format(5.0);	// Prints $5.00
 %>
-<h3><a href= "index.jsp">Home</a></h3>
+
 </body>
 </html>
